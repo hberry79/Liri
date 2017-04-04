@@ -47,7 +47,7 @@ switch (inputString) {
         //=========================================
 
     case "do-what-it-says":
-        console.log("  ");
+        doIt();
         break;
 } //end of switch case function
 
@@ -132,5 +132,16 @@ function getMovie() {
         }
     }); //end of request
 } //end of getMovie
+
+//=========================================
+
+function doIt(){
+	fs.readFile("random.txt", "utf8", function(error, data){
+		var myArr = data.split(",")
+		songName = myArr[1] 
+		runSong();
+	})//end of readFile 
+}//end of doit
+
 
 //=========================================
